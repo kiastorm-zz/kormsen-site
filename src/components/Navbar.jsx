@@ -3,17 +3,32 @@
 import { Link as GatsbyLink } from 'gatsby';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Box, Container, NavLink } from 'rebass';
+import { Box, NavLink } from 'rebass';
+import styled from 'styled-components';
+import { themeGet } from 'styled-system';
+import Skull from '../assets/skull.svg';
+
+const VerticalNavbar = styled(Box)`
+  height: 100%;
+  width: 60px;
+  align-items: center;
+`;
+
+const NavbarContent = styled(Box)`
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+`;
 
 const Navbar = ({ brand, ...props }) => {
   return (
-    <Box is="header" color="white" bg="rebeccapurple" {...props}>
-      <Container>
-        <NavLink is={GatsbyLink} to="/" px={0} my={3}>
-          {brand}
+    <VerticalNavbar as="header" color="blue" bg="black" {...props}>
+      <NavbarContent bg="black">
+        <NavLink as={GatsbyLink} to="/" px={0} my={3}>
+          <Skull fill="#FBEDC1" width="32px" />
         </NavLink>
-      </Container>
-    </Box>
+      </NavbarContent>
+    </VerticalNavbar>
   );
 };
 

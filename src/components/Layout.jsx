@@ -2,16 +2,32 @@ import { graphql, StaticQuery } from 'gatsby';
 import PropTypes from 'prop-types';
 import React from 'react';
 import Helmet from 'react-helmet';
-import { Box, Flex, Provider as RebassProvider, Text } from 'rebass';
-import { injectGlobal, ThemeProvider } from 'styled-components';
+import { Box, Flex, Provider as RebassProvider } from 'rebass';
+import styled, { injectGlobal, ThemeProvider } from 'styled-components';
 import Navbar from './Navbar';
 import theme from '../theme';
 
 injectGlobal`
   body {
+    color: #FBEDC1;
     margin: 0;
     text-size-adjust: 100%;
   }
+
+  h1, h2, h3, h4 {
+    font-family: brandon-grotesque, sans-serif;
+    margin: 0;
+  }
+
+  h1 {
+    letter-spacing: 1.8px;
+  }
+`;
+
+const MainView = styled(Box)`
+  display: flex;
+  height: 100%;
+  width: 100%;
 `;
 
 const Layout = ({ children }) => {
@@ -21,6 +37,7 @@ const Layout = ({ children }) => {
         is={Flex}
         flexDirection="column"
         css={{ minHeight: '100vh' }}
+        theme={theme}
       >
         <StaticQuery
           query={graphql`
@@ -43,11 +60,18 @@ const Layout = ({ children }) => {
           )}
         />
 
-        <Flex flexWrap="wrap" css="height:100vh">
+        <Flex css="height:100vh; width:100vw;">
           <Navbar />
-          <Box is="main" flex={1}>
+          <MainView
+            px={60}
+            py={40}
+            m={0}
+            bg="lightBlack"
+            as="main"
+            css={{ height: '100%' }}
+          >
             {children}
-          </Box>
+          </MainView>
         </Flex>
       </RebassProvider>
     </ThemeProvider>
