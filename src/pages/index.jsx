@@ -42,6 +42,7 @@ const LinkWithArrow = styled(Link)`
 
   &:hover {
     transform: scale(1.1);
+    transform-origin: bottom right;
 
     ${LinkText} {
       color: ${themeGet('colors.beige')};
