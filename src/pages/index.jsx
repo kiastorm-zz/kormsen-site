@@ -39,10 +39,10 @@ const LinkWithArrow = styled(Link)`
   margin-bottom: 60px;
   text-decoration: none;
   transition: all ease-in-out 0.15s;
+  transform-origin: bottom right;
 
   &:hover {
     transform: scale(1.1);
-    transform-origin: bottom right;
 
     ${LinkText} {
       color: ${themeGet('colors.beige')};
