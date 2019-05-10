@@ -1,5 +1,3 @@
-const env = require('dotenv').config();
-
 module.exports = {
   siteMetadata: {
     title: 'Kormsen',
@@ -8,12 +6,19 @@ module.exports = {
   plugins: [
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',
+    'gatsby-plugin-sass',
     {
       resolve: 'gatsby-plugin-react-svg',
       options: {
         rules: {
           include: 'src/assets/*.svg',
         },
+      },
+    },
+    {
+      resolve: `gatsby-plugin-typography`,
+      options: {
+        pathToConfigModule: `src/utils/typography`,
       },
     },
   ],

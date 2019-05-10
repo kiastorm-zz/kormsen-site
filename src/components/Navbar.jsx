@@ -17,13 +17,12 @@ const VerticalNavbar = styled(Box)`
 const NavbarContent = styled(Box)`
   display: flex;
   justify-content: center;
-  padding: 20px 0;
 `;
 
 const Navbar = ({ brand, ...props }) => {
   return (
     <VerticalNavbar as="header" color="blue" bg="black" {...props}>
-      <NavbarContent bg="black">
+      <NavbarContent className="py5" bg="black">
         <NavLink as={GatsbyLink} to="/" px={0} my={3}>
           <Skull fill="#FBEDC1" width="32px" />
         </NavLink>

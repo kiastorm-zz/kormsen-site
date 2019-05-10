@@ -8,9 +8,16 @@ import ArrowIcon from '../assets/arrow.svg';
 import theme from '../theme';
 
 const HeadingUnderline = styled.span`
-  background-color: ${themeGet('colors.orange')};
+  color: ${props => props.theme.colors.orange};
   display: flex;
   height: 5px;
+  width: auto;
+`;
+
+const Intro = styled.div`
+  display: inline-flex;
+  flex-direction: column;
+  margin-bottom: 20px;
   width: auto;
 `;
 
@@ -22,83 +29,35 @@ const HomepageContent = styled(Box)`
   justify-content: space-between;
 `;
 
-const LinkText = styled(Text)`
-  color: ${themeGet('colors.midGrey')};
-  font-family: brandon-grotesque, sans-serif;
+const LinkText = styled.h3`
   margin-right: 30px;
   text-align: right;
   transition: all ease-in 0.15s;
 `;
 
-const Arrow = styled(ArrowIcon)``;
-
-const LinkWithArrow = styled(Link)`
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  margin-bottom: 60px;
-  text-decoration: none;
-  transition: all ease-in-out 0.15s;
-  transform-origin: bottom right;
-
-  &:hover {
-    transform: scale(1.1);
-
-    ${LinkText} {
-      color: ${themeGet('colors.beige')};
-    }
-
-    ${Arrow} g {
-      fill: ${themeGet('colors.beige')};
-    }
-
-    ${Arrow} path {
-      stroke: ${themeGet('colors.beige')};
-    }
-  }
+const PageHeading = styled.h1`
+  color: ${theme.colors.lightGrey};
+  font-style: italic;
+  text-shadow: 0 1px #303d33, -1px 0 #3d3235, -1px 2px #303d33, -2px 1px #3d3235,
+    -2px 3px #303d33, -3px 2px #3d3235, -3px 4px #303d33, -4px 3px #3d3235,
+    -4px 5px #303d33, -5px 4px #3d3235, -5px 6px #303d33, -6px 5px #3d3235,
+    -6px 7px #303d33, -7px 6px #3d3235, -7px 8px #303d33, -8px 7px #3d3235;
 `;
 
 const IndexPage = () => (
   <Layout>
     <HomepageContent>
       <Box>
-        <Box
-          mb={20}
-          css={{
-            display: 'inline-flex',
-            flexDirection: 'column',
-            width: 'auto',
-          }}
-        >
-          <Heading
-            fontSize={[6, 7]}
-            fontWeight="500"
-            is="h1"
-            css={{ display: 'inline' }}
-          >
-            kia storm
-          </Heading>
+        <Intro>
+          <PageHeading>kia storm</PageHeading>
           <HeadingUnderline />
-        </Box>
-        <Heading fontWeight="400" fontSize={[5, 6]} is="h3">
-          a web interface & experience designer / developer
-        </Heading>
+        </Intro>
+        <h2>a web interface & experience designer / developer</h2>
       </Box>
       <Box>
-        <LinkWithArrow href="/work">
-          <LinkText fontSize={[3, 4]}>
-            i specialize in front end javascript
-          </LinkText>
-          <Arrow />
-        </LinkWithArrow>
-        <LinkWithArrow href="/blog">
-          <LinkText fontSize={[3, 4]}>i also write down my thoughts</LinkText>
-          <Arrow />
-        </LinkWithArrow>
-        <LinkWithArrow href="/music">
-          <LinkText fontSize={[3, 4]}>and i create music</LinkText>
-          <Arrow />
-        </LinkWithArrow>
+        <LinkText>i specialize in front end javascript</LinkText>
+        <LinkText>i also write down my thoughts</LinkText>
+        <LinkText>and i create music</LinkText>
       </Box>
     </HomepageContent>
   </Layout>

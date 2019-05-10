@@ -1,0 +1,49 @@
+.ease-transition-75 {
+  -webkit-transition: all 75ms ease-out;
+  transition: all 75ms ease-out
+}
+
+.ease-transition-150 {
+  -webkit-transition: all 150ms ease-out;
+  transition: all 150ms ease-out
+}
+
+.ease-transition-300 {
+  -webkit-transition: all 300ms ease-out;
+  transition: all 300ms ease-out
+}
+
+.ease-transition-500 {
+  -webkit-transition: all 500ms ease-out;
+  transition: all 500ms ease-out
+}
+
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 150ms ease-in;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 150ms ease-in;
+}
+
+@keyframes fadein {
+  0% { opacity:0; }
+  66% { opacity:0; }
+  100% { opacity:1; }
+}
+
+@-webkit-keyframes fadein {
+  0% { opacity:0; }
+  66% { opacity:0; }
+  100% { opacity:1; }
+}
